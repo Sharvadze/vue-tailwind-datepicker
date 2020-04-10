@@ -85,6 +85,7 @@
                 let target = event.target.innerHTML;
                 this.selectedDate = this.formatSelectedDate(target);
                 this.$emit("input", this.selectedDate);
+                this.showCalendar();
             },
             formatSelectedDate(target) {
                 let day = target ? target : this.currentDate;
@@ -102,10 +103,6 @@
                 ).format();
                 let selected = moment(str).utcOffset(str);
                 return selected.format(this.dateFormat);
-            },
-            toggle(){
-                this.$emit("toggle", this.hideCalendar = !this.hideCalendar);
-                return (this.hideCalendar = !this.hideCalendar);
             },
             showCalendar() {
                 return (this.hideCalendar = !this.hideCalendar);
