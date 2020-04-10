@@ -103,6 +103,10 @@
                 let selected = moment(str).utcOffset(str);
                 return selected.format(this.dateFormat);
             },
+            toggle(){
+                this.$emit("toggle", this.hideCalendar = !this.hideCalendar);
+                return (this.hideCalendar = !this.hideCalendar);
+            },
             showCalendar() {
                 return (this.hideCalendar = !this.hideCalendar);
             },
